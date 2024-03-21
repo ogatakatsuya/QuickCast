@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="my-4">
+    <div class="d-flex align-items-center justify-content-center">
+        検索結果:
+    </div>
+    <li class="d-flex justify-content-center align-items-center">気温：{{temp}}°C</Canvas></li>
+    <li class="d-flex justify-content-center align-items-center">湿度：{{humidity}}%</li>
+    <li class="d-flex justify-content-center align-items-center">風速：{{wind}}km/h</li>
+    <li class="d-flex justify-content-center align-items-center">天気：{{weather}}</li>
+</h1>
+<div class="d-flex justify-content-end">
+    <a href="{{ url_for('search') }}" class="btn btn-primary">戻る</a>
+</div>
+{% endblock %}

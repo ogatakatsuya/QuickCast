@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="my-4">地域入力</h1>
+    {% from "_formhelpers.html" import render_field %}
+    <form method="POST" action="{{ url_for('search') }}" novalidate>
+        <div class="mb-3">
+            {{ render_field(form.city, class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+{% endblock %}
