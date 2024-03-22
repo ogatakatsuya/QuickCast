@@ -28,7 +28,8 @@ def search():
             humidity = data["main"]["humidity"]
             wind = data["wind"]["speed"]
             weather = data["weather"][0]["main"]
-            return render_template('result.html',temp=temp,humidity=humidity,wind=wind,weather=weather)
+            name = data["name"]
+            return render_template('result.html',temp=temp,humidity=humidity,wind=wind,weather=weather,name=name)
         else:
             print(f"エラー: {data['message']}")
     return render_template('search.html',form=form)
