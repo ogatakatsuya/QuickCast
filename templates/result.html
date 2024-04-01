@@ -40,7 +40,9 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-body">
-                <img src="../images/01d.svg" class="card-img-top">
+                <div class="text-center">
+                    <img src={{first_data.icon}} class="card-img-top justify-content-center"  style="width: 50%;">
+                </div>
                 <div class="card-text">
                     <ul class="list-unstyled">
                         <li class="d-flex justify-content-center align-items-center">気温：{{first_data.temp}}°C</Canvas></li>
@@ -51,22 +53,21 @@
             </div>
         </div> 
     </div>
-    {% for data in list %}
-        <div class="container mt-4">
-            <div class="card">
-                <div class="card-body">
-                    <img src="../images/01d.svg">
-                    <div class="card-text">
-                        <ul class="list-unstyled">
-                            <li class="d-flex justify-content-center align-items-center">時刻：{{data.date}}</li>
-                            <li class="d-flex justify-content-center align-items-center">気温：{{data.temp}}°C</Canvas></li>
-                        </ul>
-                    </div>
-                </div>
-            </div> 
-        </div>
-    {% endfor %}
-
+    <div class="container">
+        <table class="table h-75">
+            <tbody>
+                {% for data in list %}
+                    <tr class="mt-4">
+                        <td>{{data.date}}</td>
+                        <td><img src="{{data.icon}}" alt=""></td>
+                        <td>{{data.description}}</td>
+                        <td><img src="images/thermometer.svg" alt=""></td>
+                        <td>{{data.temp}}°C</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

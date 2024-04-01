@@ -5,7 +5,7 @@ from pprint import pprint
 import json
 from datetime import datetime, timedelta, timezone
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./templates/images')
 
 import os
 app.config['SECRET_KEY'] = os.urandom(24)
@@ -36,10 +36,10 @@ def search():
             
             if(index == 0):
                 date = data['dt_txt']
-                temp = data['main']['temp']
+                temp = round(data['main']['temp'])
                 humidity = data['main']['humidity']
                 description = data['weather'][0]['description']
-                icon = 'images/' + data['weather'][0]['icon']
+                icon = 'images/' + data['weather'][0]['icon'] + '.svg'
                 
                 first_data = {
                     'date': date,
@@ -52,10 +52,10 @@ def search():
                 continue
             
             date = data['dt_txt']
-            temp = data['main']['temp']
+            temp = round(data['main']['temp'])
             humidity = data['main']['humidity']
             description = data['weather'][0]['description']
-            icon = 'images/' + data['weather'][0]['icon']
+            icon = 'images/' + data['weather'][0]['icon'] + '.svg'
             
             single_data = {
                 'date': date,
